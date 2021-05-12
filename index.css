@@ -1,0 +1,313 @@
+#mapaCaja{
+  z-index: 0;
+}
+#mapid {
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+ }
+
+ /*hr.estilo-linea{
+  position:relative;
+  top: -58px;
+   border: 0;
+   height: 3px;
+   background: #808080;
+   margin-left: 6%;
+   width:80%;
+   z-index: 2;
+ }*/
+
+
+/* Contender para posicionar la Línea de tiempo*/
+ #lineaDeTiempo{
+   /*display: flex;
+   flex-flow: row wrap;*/
+   background-color: rgba(0,0,0,0.5);
+   position:absolute;
+   top:85%;
+   margin-left:10%;
+   padding: 10px;
+
+   width:80%;
+   height: 60px;
+   /*overflow-x: auto;*/
+   z-index: 3;
+
+   /*text-align: center;*/
+ }
+
+ /*Botones avance y retroceso línea de tiempo*/
+ #scroll-left {
+     float: left;
+     background-image: url(./scrollLeft.png);
+   }
+
+   #scroll-right {
+       float: right;
+       background-image: url(./scrollRight.png);
+     }
+
+     #scroll-left, #scroll-right {
+       width: 35px;
+       background-position: 0 center;
+       background-repeat: no-repeat;
+       height: 100%;
+       cursor: pointer;
+
+   }
+
+  .prev, .next {
+    height: 40px;
+    width:  40px;
+    /*display: inline-block;*/
+   cursor: pointer;
+  /* flex: 1; */
+   /*top: 20px;
+   /*margin-top: -30px;*/
+   padding: 15px;
+   background: yellow;
+   color: #888;
+   font-weight: bold;
+   font-size: 40px;
+   border-radius: 50%;
+   user-select: none;
+   text-align: center;
+ }
+ .prev{
+   margin-top: 15px;
+   margin-left: 250px;
+ }
+ .next{
+   margin-top: 15px;
+   margin-left: 60px;
+ }
+
+ .prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+ /* Estilo de cada evento en la línea de tiemop */
+  .lineaTiempo{
+    /*flex: 1;*/
+    height: 15px;
+    width: 15px;
+    /*margin-top: -20px;*/
+
+    background: #c3ddd6;
+    border-radius: 100%;    /*Crea el círculo*/
+    margin-left: 30px;    /* Espaciar los eventos de la linea de tiempo */
+    cursor: pointer;
+    /*line-height: 0px;       /*necesario para centrar el texto luego*/
+    position: relative;
+    display: inline-block;  /*visualización horizontal de todos los contenedores(círculos)*/
+
+    /*display: none;*/
+
+    /*text-align: center;*/
+  }
+
+  .adyacente{
+  /*display: inline-block;*/
+  }
+
+/*Centrar Texto en cada evento de la línea de tiempo*/
+/*  .lineaTiempo-texto{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+  }*/
+
+  .lineaTiempo-texto{
+    visibility: hidden;
+
+  width: 20px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+  position: relative;
+  font-family: monospace;
+  white-space: nowrap;
+  left: -30px;
+  top: -30px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  }
+
+
+  .lineaTiempo:hover .lineaTiempo-texto{
+    visibility: visible;
+    opacity: 1;
+
+  }
+
+.uno{
+  position:fixed;
+  top: 700px;
+  height:100px;
+  width: 100px;
+  background: #808080;
+  display: inline-block;
+}
+
+.dos{
+  height:50px;
+  width: 50px;
+  background: #000;
+}
+
+/* Animar interacción con línea de tiempo*/
+
+  @keyframes eventosAnimacion {
+
+    100% {transform: scale(2.0);}
+  }
+
+  @keyframes eventosAnimacionTexto {
+    100% {transform: scale(1.5);}
+  }
+
+  .lineaTiempo:hover .lineaTiempo-texto{
+    background-color: #555;
+    animation-name: eventosAnimacionTexto;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .lineaTiempo:hover{
+    background-color: #fdf4dc;
+    animation-name: eventosAnimacion;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+.lineaTiempo:active{
+  background-color: #ffad4f;
+  /*background-color: #c3ddd6;*/
+}
+
+
+
+
+div.ex1 {
+  background-color: white;
+  width: auto;
+  height: 420px;
+  overflow: scroll;
+
+}
+
+
+
+/* opciones de mpaas */
+
+.mapa-imagenes-selector{
+  display:inline;
+  position: relative;
+  top: 20px;
+  left: 10px;
+}
+
+.leaflet-control-layers-expanded {
+	padding: 6px 10px 6px 6px;
+	color: #333;
+	background: #fff;
+  font-weight: bolder;
+	}
+
+  .leaflet-control-layers-selector {
+	margin-top: 40px;
+	position: relative;
+	top: 0px;
+	}
+
+/*Estilo selector de mapas antiguos*/
+#selectorMapas{
+  position: absolute;
+  background: #c3ddd6;
+  top: 5%;
+  left: 36%;
+  padding: 7px;
+  border-radius: 10px;
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
+  font-family: monospace;
+  z-index: 4;
+}
+
+
+
+/* Estilo del deslizador de opacidad */
+.slider-wrapper {
+  position: absolute;
+  top:5%;
+  left: 6%;
+  box-shadow: 1px 3px 10px rgba(10, 10, 10, 0.5);
+  border: 0.07rem solid rgb(100,100,100);
+  background: rgba(30,30,30,0.85);
+  padding: 5px 13px 5px;
+  border-radius: 10px;
+  color: #ddd;
+  z-index: 4;
+}
+output {
+  display: inline-block;
+  width:25px;
+}
+
+input[type=range] {
+  width: 200px;
+  background-color: #777;
+}
+
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    height: 20px;
+    width: 20px;
+    border-radius: 20%;
+    background: goldenrod;
+    margin-top: 0px;
+
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+/*
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: goldenrod;
+    margin-top: -4px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #000;
+}
+*/
