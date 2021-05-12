@@ -1,0 +1,102 @@
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="splide/dist/css/splide.min.css">
+
+</head>
+
+<div id="mapaCaja">
+  <div id="mapid"></div>
+  <div class="slider-wrapper">
+    <label for="opacity-slider" id="transparencia"></label>
+    <input type="range" min="0" max="1" value="1" id="opacity-slider" step="0.01">
+    <output for="opacity-slider" id="slider-value"></output>
+  </div>
+
+<div id="selectorMapas">
+  <label for="mapasAntiguos">Selecciona un mapa:</label>
+ <select name="mapasAntiguos" onchange="superPonerMapa()" id="mapas">
+   <option id="colombia1827" value="colombia1827">Mapa de Colombia 1827</option>
+   <option id="colombia1819" value="colombia1819">Mapa de Nueva Granada 1819</option>   
+
+ </select>
+ </div>
+  <!--
+  <div id="lineaDeTiempo">
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <div id="Guayaquil" class="lineaTiempo"><div class="lineaTiempo-texto">Octubre, del año 1824</div></div>
+    <div id="rioGuayaquilBabahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1824</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1824</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1824</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1824</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1824</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1824</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1824</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1824</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1825</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1825</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1825</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1825</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1825</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1825</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1825</div></div>
+    <div id="Babahoyo" class="lineaTiempo"><div class="lineaTiempo-texto">1825</div></div>
+    <div id="Bogota" class="lineaTiempo"><div class="lineaTiempo-texto">1825</div></div>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>!-->
+
+  <div id="lineaDeTiempo">
+  <!--  <div class="prev" onclick="eventoSiguiente(-1)">❮</div> !-->
+  <div id="scroll-left"></div>
+  <div id="scroll-right"></div>
+    <div id="Guayaquil" class="lineaTiempo adyacente"><span class="lineaTiempo-texto">Septiembre 30, 1824</span></div>
+    <div id="rioGuayaquilBabahoyo" class="lineaTiempo adyacente"><span class="lineaTiempo-texto">Octubre, 1824</span></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><span class="lineaTiempo-texto">Octubre 15, 1824</span></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><span class="lineaTiempo-texto">Octubre 23, 1824</span></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><span class="lineaTiempo-texto">Octubre 30, 1824</span></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><span class="lineaTiempo-texto">Noviembre 1, 1824</span></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+    <div id="Babahoyo" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+    <div id="Bogota" class="lineaTiempo adyacente"><div class="lineaTiempo-texto"></div></div>
+<!--    <div class="next" onclick="eventoSiguiente(1)">❯</div> !-->
+  </div>
+  <hr class="estilo-linea">
+</div>
+
+<input id="input" type="file" name="" value="">
+
+<p id="myText"> Hey </p>
+<div class="">
+
+</div>
+
+
+<a href="FuentesPrimarias.html">Fuentes Primaria</a>
+<a href="fuentes.asp">Fuentes</a>
+<div class="uno">
+  <p>prueba hgf jkhg jkg  jkg jk</p>
+  <p>testt</p>
+
+</div>
+
+<script src="map.js"></script>
+<!-- <script src="botonesLinea.js"></script> !-->
+<script src="splide/dist/js/splide.min.js"></script>
