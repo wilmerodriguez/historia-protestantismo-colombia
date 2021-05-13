@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+body {
+  background: black;
+}
+
+h1 {
+  position:absolute;
+  top:5%;
+  left: 12%;
+  color:white;
+  font-family:monospace;
+}
+
+p {
+    position:absolute;
+    top: 20%;
+    left: 10%;
+    right: 10%;
+    color: white;
+    font-family: monospace;
+    font-size: 20px;
+    }
+    #continuar{
+      position: absolute;
+      top: 80%;
+      right: 10%;
+      color:white;
+      padding: 3px;
+      text-decoration:none;
+      font-family: monospace;
+      font-size: 25px;
+    }
+    #continuar:hover{
+      border: 5px solid black;
+      border-radius: 15px;
+      color: black;
+      background: #f6eabe;
+      cursor: pointer;
+    }
+
+    .button {
+            position: absolute;
+            bottom:17%;
+            right: 2%;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #7aa8b7;
+            border-radius: 6px;
+            outline: none;
+            z-index: 4;
+          }
+
+  </style>
+</head>
+<body>
+
+
+<h1 id="textoh1"></h1>
+
+<p id="textoThomson"></p>
+<a href="thomson.html" id="continuar"></a>
+
+
+</body>
+<script>
+var i = 0;
+
+//var txth1 = 'Por primera vez, llega la Biblia en español a Colombia...';
+var txt = 'Estimados lectores, la presente es un historia que da cuenta de los inicios de los esfuerzos protestantes en el país y de cómo empezaron a impactar en la sociedad Colombiana desde los inicios de la república. Iniciaremos con James Thomson, un ministro protestante escocés, quien trajo la Biblia en el idioma español por primera vez a Colombia. Este misionero se encargó de recorrer varios lugares en la época de la Gran Colombia para vender copias del Nuevo Testamento e impulsar la creación de una Sociedad Bíblica que se dedicara a la circulación de las Escrituras. Thomson estuvo viajando por Suramérica desde 1819 hasta 1825 con el propósito de implementar el sistema educativo Lancasteriano y hacer circular las Escrituras en el idioma español. Fue agente encargado de la British Foreign Bible Society y de la British Foreign School Society. Empezó en Argentina, pasó por Uruguay, Chile y Perú, y entre 1824 y 1825 finalizó en la Gran Colombia. Fue su deseo el ver estas Escrituras circulando por todo el territorio Colombiano y de contribuir a la educación de la república en esta época de grandes cambios.';
+var speed = 1;
+//typeh1();
+function typeh1(){
+while (i < txt.length) {
+  document.getElementById("textoh1").innerHTML += txt.charAt(i);
+  i++;
+  setTimeout(typeWriter, speed);
+}
+}
+typeWriter();
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("textoThomson").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+    if(i === txt.length){
+      document.getElementById("continuar").innerHTML = "Continuar";
+    }
+  }
+}
+</script>
